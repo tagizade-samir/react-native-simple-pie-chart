@@ -3,6 +3,8 @@ import { DEFAULT } from './constants';
 
 const { DASHES_MAPPING, COLORS } = DEFAULT;
 
+const getRandomColor = () => COLORS[Math.floor(Math.random() * COLORS.length)];
+
 const getDashesAmount = (amount: DASHES_AMOUNT, withDashes?: boolean) => {
   if (withDashes) {
     const margin = DASHES_MAPPING[amount];
@@ -43,8 +45,9 @@ const generateMainPie = (
 
     const angle = pieAngle;
     const piePercent = parseFloat(
-      (data[id]?.amount ?? 0 / maxValue).toFixed(3)
+      ((data[id]?.amount ?? 0) / maxValue).toFixed(3)
     );
+    console.log('piePercent :>> ', piePercent);
 
     const offsetPercent = getOffsetPercent(piePercent);
 
@@ -54,7 +57,7 @@ const generateMainPie = (
     pies.push({
       id,
       percent: getPiePercent(piePercent, overallPercent),
-      color: data[id]?.color ?? COLORS[0],
+      color: data[id]?.color ?? getRandomColor(),
       angle,
     });
   }
@@ -84,7 +87,7 @@ const generateMainPie = (
       angle,
     });
   }
-
+  console.log('pies :>> ', pies);
   return [pies, dashes];
 };
 
