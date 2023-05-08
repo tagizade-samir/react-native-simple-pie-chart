@@ -1,7 +1,7 @@
 {
   "name": "react-native-simple-pie-chart",
-  "version": "1.0.2",
-  "description": "test",
+  "version": "1.0.3",
+  "description": "Simple pie chart module for both Android and iOS with optional dashes and middle component if needed",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
   "types": "lib/typescript/index.d.ts",
@@ -38,7 +38,9 @@
   "keywords": [
     "react-native",
     "ios",
-    "android"
+    "android",
+    "pie-chart",
+    "simple-pie-chart"
   ],
   "repository": "https://github.com/tagizade-samir/react-native-simple-pie-chart",
   "author": "T.Samir <tagizade.samir@gmail.com> (https://github.com/tagizade-samir)",
