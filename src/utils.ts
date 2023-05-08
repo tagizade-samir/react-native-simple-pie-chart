@@ -47,7 +47,6 @@ const generateMainPie = (
     const piePercent = parseFloat(
       ((data[id]?.amount ?? 0) / maxValue).toFixed(3)
     );
-    console.log('piePercent :>> ', piePercent);
 
     const offsetPercent = getOffsetPercent(piePercent);
 
@@ -87,7 +86,7 @@ const generateMainPie = (
       angle,
     });
   }
-  console.log('pies :>> ', pies);
+
   return [pies, dashes];
 };
 
