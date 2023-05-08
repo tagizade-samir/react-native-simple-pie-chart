@@ -1,13 +1,13 @@
 interface PieChartItem {
-  amount: number
-  color?: string
+  amount: number;
+  color?: string;
 }
 
 interface IGeneratedPieItem {
-  id: number
-  percent: number
-  color?: string
-  angle: number
+  id: number;
+  percent: number;
+  color?: string;
+  angle: number;
 }
 
 enum DASHES_AMOUNT {
@@ -19,10 +19,10 @@ enum DASHES_AMOUNT {
 }
 
 interface IDashMap {
-  dash: number
-  space: number
+  dash: number;
+  space: number;
 }
 
-export type { PieChartItem, IGeneratedPieItem, IDashMap }
+export type { PieChartItem, IGeneratedPieItem, IDashMap };
 
-export { DASHES_AMOUNT }
+export { DASHES_AMOUNT };

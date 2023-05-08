@@ -1,11 +1,11 @@
-import React, { FC, ReactNode, useState } from 'react'
-import { LayoutChangeEvent, StyleSheet, View } from 'react-native'
-import Svg, { Circle } from 'react-native-svg'
+import React, { FC, ReactNode, useState } from 'react';
+import { LayoutChangeEvent, StyleSheet, View } from 'react-native';
+import Svg, { Circle } from 'react-native-svg';
 
-import { DEFAULT } from './constants'
-import { CustomCircle } from './CustomCircle'
-import { DASHES_AMOUNT, PieChartItem } from './types'
-import { generateMainPie } from './utils'
+import { DEFAULT } from './constants';
+import { CustomCircle } from './CustomCircle';
+import { DASHES_AMOUNT, PieChartItem } from './types';
+import { generateMainPie } from './utils';
 
 const {
   SVG_SIZE,
@@ -14,15 +14,15 @@ const {
   SVG_RADIUS,
   SECONDARY_STROKE_WIDTH,
   SECONDARY_SVG_RADIUS,
-} = DEFAULT
+} = DEFAULT;
 
 interface PieChartProps {
-  max?: number
-  data: PieChartItem[]
-  backgroundColor?: string
-  withDashes?: boolean
-  dashesAmount?: DASHES_AMOUNT
-  center?: ReactNode
+  max?: number;
+  data: PieChartItem[];
+  backgroundColor?: string;
+  withDashes?: boolean;
+  dashesAmount?: DASHES_AMOUNT;
+  center?: ReactNode;
 }
 
 export const PieChart: FC<PieChartProps> = ({
@@ -33,27 +33,28 @@ export const PieChart: FC<PieChartProps> = ({
   center,
   dashesAmount,
 }) => {
-  const [size, setSize] = useState(0)
-  const [pies, dashes] = generateMainPie(data, max, withDashes, dashesAmount)
+  const [size, setSize] = useState(0);
+  const [pies, dashes] = generateMainPie(data, max, withDashes, dashesAmount);
 
   const handleLayout = (event: LayoutChangeEvent) => {
-    const height = event.nativeEvent.layout.height
-    const width = event.nativeEvent.layout.width
-    if (!height || !width) return
+    const height = event.nativeEvent.layout.height;
+    const width = event.nativeEvent.layout.width;
+    if (!height || !width) return;
 
     const finalSize =
       Math.floor(height) < Math.floor(width)
         ? Math.floor(height)
-        : Math.floor(width)
-    setSize(finalSize * 0.7)
-  }
+        : Math.floor(width);
+    setSize(finalSize * 0.7);
+  };
 
   return (
     <View style={styles.container}>
       <Svg
         onLayout={handleLayout}
         style={styles.chart}
-        viewBox={`0 0 ${SVG_SIZE} ${SVG_SIZE}`}>
+        viewBox={`0 0 ${SVG_SIZE} ${SVG_SIZE}`}
+      >
         <Circle
           cy={SVG_CENTER}
           cx={SVG_CENTER}
@@ -80,8 +81,8 @@ export const PieChart: FC<PieChartProps> = ({
         </View>
       ) : null}
     </View>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -107,4 +108,4 @@ const styles = StyleSheet.create({
     position: 'absolute',
     overflow: 'hidden',
   },
-})
+});

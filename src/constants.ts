@@ -1,12 +1,12 @@
-import { DASHES_AMOUNT, IDashMap } from './types'
+import { DASHES_AMOUNT, IDashMap } from './types';
 
-const SVG_SIZE = 100
-const STROKE_WIDTH = 10
-const SECONDARY_STROKE_WIDTH = 5
-const SVG_CENTER = SVG_SIZE / 2
-const SVG_RADIUS = (SVG_SIZE - STROKE_WIDTH) / 2
-const SECONDARY_SVG_RADIUS = (SVG_SIZE - SECONDARY_STROKE_WIDTH) / 2
-const SVG_CIRCUMFERENCE = 2 * Math.PI * SECONDARY_SVG_RADIUS
+const SVG_SIZE = 100;
+const STROKE_WIDTH = 10;
+const SECONDARY_STROKE_WIDTH = 5;
+const SVG_CENTER = SVG_SIZE / 2;
+const SVG_RADIUS = (SVG_SIZE - STROKE_WIDTH) / 2;
+const SECONDARY_SVG_RADIUS = (SVG_SIZE - SECONDARY_STROKE_WIDTH) / 2;
+const SVG_CIRCUMFERENCE = 2 * Math.PI * SECONDARY_SVG_RADIUS;
 
 const DASHES_MAPPING: Record<DASHES_AMOUNT, IDashMap> = {
   10: { dash: 0.01, space: 0.09 }, // sum = .1
@@ -14,7 +14,7 @@ const DASHES_MAPPING: Record<DASHES_AMOUNT, IDashMap> = {
   25: { dash: 0.005, space: 0.035 }, // sum = .04
   50: { dash: 0.002, space: 0.018 }, // sum = .02
   100: { dash: 0.002, space: 0.008 }, // sum = .01
-}
+};
 
 const COLORS = [
   '#e9c46a',
@@ -27,7 +27,7 @@ const COLORS = [
   '#2ec4b6',
   '#ffecd1',
   '#023e8a',
-]
+];
 
 export const DEFAULT = {
   SVG_SIZE,
@@ -39,4 +39,4 @@ export const DEFAULT = {
   SECONDARY_SVG_RADIUS,
   SVG_CIRCUMFERENCE,
   COLORS,
-}
+};
