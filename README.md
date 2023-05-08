@@ -42,7 +42,7 @@ or
 With this you'll get the following result
 
 
-<img src="https://raw.githubusercontent.com/tagizade-samir/react-native-simple-pie-chart/dev/assets/default.png" width="200" />
+<img src="https://raw.githubusercontent.com/tagizade-samir/react-native-simple-pie-chart/master/assets/default.png" width="200" />
 
 ## Props
 
@@ -52,7 +52,14 @@ With this you'll get the following result
 | `max` | `number` | Will be calculated from `data` | Maximum amount to calculate percentages of each individual pies |
 | `backgroundColor` | `string` | `#b5e48c` | Background color of the pie chart in the background |
 | `withDashes` | `boolean` | `false` | Indicates if we have dashes on pie chart |
-| `dashesAmount` | `number` | See below | Indicates how many dashes we have |
+| `dashesAmount` | See below | 25 | Indicates how many dashes we have |
 | `center` | `ReactNode` | `undefined` | If present, will be rendered in the center of our pie chart |
 
 Where `dashesAmount` can be one of the following: `10, 20, 25, 50, 100`
+
+The required `data` array must contain objects with the following options:
+
+| Key | Data type | Default value? | Description |
+|-----|-----------|----------------|-------------|
+| `amount` | `number` | Required. | Will be used to calculate percentage of pie chart with comparison with `max` value. And if we don't have `max` value, this prop will be used to calculate maximum possible amount |
+| `color` | `string` | Random color from this libraries color palette | The color of the pie chart. |
