@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import React, { FC } from 'react'
 import { Circle } from 'react-native-svg'
 
 import { DEFAULT } from './constants'
@@ -7,7 +7,7 @@ const { STROKE_WIDTH, SVG_CENTER, SVG_RADIUS, SVG_CIRCUMFERENCE } = DEFAULT
 
 interface CustomCircleProps {
   id?: number | string
-  color: string
+  color?: string
   angle: number
   percent: number
   strokeWidth?: number

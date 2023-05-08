@@ -25,7 +25,7 @@ const generateMainPie = (
   data: PieChartItem[],
   max?: number,
   withDashes?: boolean,
-  dashesAmount: DASHES_AMOUNT = DASHES_AMOUNT._25,
+  dashesAmount: DASHES_AMOUNT = DASHES_AMOUNT._25
 ): [IGeneratedPieItem[], IGeneratedPieItem[]] => {
   let pieAngle = 0
   let dashesAngle = 0
@@ -42,7 +42,7 @@ const generateMainPie = (
     if (overallPercent > 1) break
 
     const angle = pieAngle
-    const piePercent = parseFloat((data[id].amount / maxValue).toFixed(3))
+    const piePercent = parseFloat((data[id]?.amount ?? 0 / maxValue).toFixed(3))
 
     const offsetPercent = getOffsetPercent(piePercent)
 
@@ -52,7 +52,7 @@ const generateMainPie = (
     pies.push({
       id,
       percent: getPiePercent(piePercent, overallPercent),
-      color: data[id].color ?? COLORS[id],
+      color: data[id]?.color ?? COLORS[0],
       angle,
     })
   }
@@ -60,14 +60,18 @@ const generateMainPie = (
   for (let i = 1; i <= dashesPercent; i++) {
     const angle = dashesAngle
     const offsetPercent = getOffsetPercent(
-      DASHES_MAPPING[dashesAmount].dash + DASHES_MAPPING[dashesAmount].space,
+      DASHES_MAPPING[dashesAmount].dash + DASHES_MAPPING[dashesAmount].space
     )
     const currentPieItem = pies[nextPieIndex - 1] ?? pies.at(-1)
     const nextPieItem = pies[nextPieIndex] ?? pies.at(-1)
 
     dashesAngle += offsetPercent
 
-    if (dashesAngle >= nextPieItem?.angle - 1 && nextPieIndex < pies.length) {
+    if (
+      nextPieItem?.angle
+        ? dashesAngle >= nextPieItem.angle - 1
+        : false && nextPieIndex < pies.length
+    ) {
       nextPieIndex++
     }
 

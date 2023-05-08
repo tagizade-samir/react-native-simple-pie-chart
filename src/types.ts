@@ -6,7 +6,7 @@ interface PieChartItem {
 interface IGeneratedPieItem {
   id: number
   percent: number
-  color: string
+  color?: string
   angle: number
 }
 

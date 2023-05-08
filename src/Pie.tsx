@@ -1,4 +1,4 @@
-import { FC, ReactNode, useState } from 'react'
+import React, { FC, ReactNode, useState } from 'react'
 import { LayoutChangeEvent, StyleSheet, View } from 'react-native'
 import Svg, { Circle } from 'react-native-svg'
 
